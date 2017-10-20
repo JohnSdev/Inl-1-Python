@@ -10,7 +10,8 @@ def json_encode( data ):
     elif isinstance( data, ( int, float ) ):
         return str( data )
     elif isinstance( data, str ):
-        return "NOT IMPLEMENTED, YOU NEED TO IMPLEMENT THIS YOURSELF"
+        data2= "\"" + data + "\""
+        return data2
     elif isinstance( data, list ):
         return "NOT IMPLEMENTED, YOU NEED TO IMPLEMENT THIS YOURSELF"
     elif isinstance( data, dict ):
