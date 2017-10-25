@@ -1,6 +1,3 @@
-
-
-
 def json_encode( data ):
     if isinstance( data, bool ):
         if data:
@@ -10,8 +7,10 @@ def json_encode( data ):
     elif isinstance( data, ( int, float ) ):
         return str( data )
     elif isinstance( data, str ):
-        data2= "\"" + data + "\""
-        return data2
+        data2 = '"'
+		for x in data:
+			if x == '\n':
+			     data2+= x
     elif isinstance( data, list ):
         return "NOT IMPLEMENTED, YOU NEED TO IMPLEMENT THIS YOURSELF"
     elif isinstance( data, dict ):
