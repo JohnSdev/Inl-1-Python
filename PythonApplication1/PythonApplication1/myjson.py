@@ -27,7 +27,8 @@ def json_encode( data ):
 		return data3
 	elif isinstance( data, dict ):
 		data2= str(data)
-		data3=  data2.replace("'", '"').replace(" ", "").replace("True", "true").replace("False", "false")
+		data3=  data2.replace("'", '"').replace(" ", "").replace("True", "true").replace("False", "false").replace(" ", "")
+		
 		return data3
 	else:
 		# All other types do not  need to be implemented - it is OK that they raise an error
