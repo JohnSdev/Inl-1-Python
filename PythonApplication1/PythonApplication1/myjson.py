@@ -14,6 +14,8 @@ def json_encode( data ):
 		for x in data:
 			if x == '\n':
 				data2 += '\\n'
+			elif x == "'":
+				data2 += "\'"
 			else:
 				data2 += x
 		data2 += '"'
@@ -26,12 +28,12 @@ def json_encode( data ):
 		data3 = data2[:-1] + ']'
 		return data3
 	elif isinstance( data, dict ):
-		l="{"
+		data2="{"
 		for key,value in data.items():
-			l += json_encode(key) + ":"
-			l += json_encode(value) + ","
-		end = l[:-1] + "}"
-		return end
+			data2 += json_encode(key) + ":"
+			data2 += json_encode(value) + ","
+		data3 = data2[:-1] + "}"
+		return data3
 	else:
 		# All other types do not  need to be implemented - it is OK that they raise an error
 		raise TypeError( "%s is not JSON serializable" % repr( data ) )

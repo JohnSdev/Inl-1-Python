@@ -15,6 +15,7 @@ class TestJsonEncode(unittest.TestCase):
     def test04_float( self ):
         self.assertEqual( json_encode( 3.14159 ), "3.14159" )
         self.assertEqual( json_encode( 1.0/3.0 ), "0.3333333333333333" )
+        self.assertEqual( json_encode( -1.3323), "-1.3323") #New test with negative numbers
 
     def test05_string( self ):
         self.assertEqual( json_encode( "Hello World" ), '"Hello World"' )
@@ -52,12 +53,12 @@ class TestJsonEncode(unittest.TestCase):
                     "email": "email2@example.com"
                 }
             ]
-        }
+		}
         self.assertEqual( json_encode( complex_data ),
                           '{"name":"Advanced Python Training","date":"October 13, 2012","completed":false,"instructor":{"name":"Anand Chitipothu","website":"http://anandology.com/"},"participants":[{"name":"Participant 1","email":"email1@example.com"},{"name":"Participant 2","email":"email2@example.com"}]}' )
 
-
+    def test11_complex_data( self ): #New Test
+        self.assertEqual( json_encode(  {"Test": ["list;", "with:dict", {"gender{}": "Male's"}]} ), '{"Test":["list;","with:dict",{"gender{}":"Male\'s"}]}' )
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
-
