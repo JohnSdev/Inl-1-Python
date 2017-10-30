@@ -26,10 +26,12 @@ def json_encode( data ):
 		data3 = data2[:-1] + ']'
 		return data3
 	elif isinstance( data, dict ):
-		data2= str(data)
-		data3=  data2.replace("'", '"').replace(" ", "").replace("True", "true").replace("False", "false").replace(" ", "")
-		
-		return data3
+		l="{"
+		for items in data.items():
+			l += json_encode(key) + ":"
+			l += json_encode(value) + ","
+		end = l[:-1] + "}"
+		return end
 	else:
 		# All other types do not  need to be implemented - it is OK that they raise an error
 		raise TypeError( "%s is not JSON serializable" % repr( data ) )
