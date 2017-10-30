@@ -27,7 +27,7 @@ def json_encode( data ):
 		return data3
 	elif isinstance( data, dict ):
 		l="{"
-		for items in data.items():
+		for key,value in data.items():
 			l += json_encode(key) + ":"
 			l += json_encode(value) + ","
 		end = l[:-1] + "}"
