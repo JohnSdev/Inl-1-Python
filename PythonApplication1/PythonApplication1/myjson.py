@@ -30,12 +30,17 @@ def json_encode( data ):
         data2 += '"'
         return data2
     
-    elif isinstance( data, list ):
+    elif isinstance( data, list ): #List comprehension test
+        data2=[json_encode(x) + "," for x in data]
+        data3= "".join(data2)
+        """
         data2='['
         for x in data:
             data2 += json_encode(x) + ','
         data3 = data2[:-1] + ']'
-        return data3
+        """
+        return "[" + data3[:-1] + "]"
+        
 
     elif isinstance( data, dict ):
         data2="{"
