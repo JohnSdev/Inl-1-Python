@@ -57,8 +57,6 @@ class TestJsonEncode(unittest.TestCase):
         self.assertEqual( json_encode( complex_data ),
                           '{"name":"Advanced Python Training","date":"October 13, 2012","completed":false,"instructor":{"name":"Anand Chitipothu","website":"http://anandology.com/"},"participants":[{"name":"Participant 1","email":"email1@example.com"},{"name":"Participant 2","email":"email2@example.com"}]}' )
 
-    def test11_complex_data( self ): #New Test
-        self.assertEqual( json_encode(  {"Test": ["list;", "with:dict", {"gender{}": "Male's"}]} ), '{"Test":["list;","with:dict",{"gender{}":"Male\'s"}]}' )
 
     def test11_tuple( self ): # New test tuple
         self.assertEqual( json_encode( ("hej", 12, ["lista1", 45])), '("hej",12,["lista1",45])' )
