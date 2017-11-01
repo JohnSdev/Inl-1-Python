@@ -18,9 +18,6 @@ def json_encode( data ):
     elif isinstance( data, ( int, float ) ):
         return str( data )
 
-    elif isinstance( data, tuple): #New test tuple
-        return str( data )
-
     elif isinstance( data, str ):
         data2 = '"'
         for x in data:
