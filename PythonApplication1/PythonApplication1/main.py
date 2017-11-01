@@ -60,5 +60,8 @@ class TestJsonEncode(unittest.TestCase):
     def test11_complex_data( self ): #New Test
         self.assertEqual( json_encode(  {"Test": ["list;", "with:dict", {"gender{}": "Male's"}]} ), '{"Test":["list;","with:dict",{"gender{}":"Male\'s"}]}' )
 
+    def test11_tuple( self ): # New test tuple
+        self.assertEqual( json_encode( ("hej", 12, ["lista1", 45])), '("hej",12,["lista1",45])' )
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
